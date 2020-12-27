@@ -12,6 +12,9 @@ mongoose.connect(URI, {
 
 const app = express();
 app.use(cors());
+app.get('/',(_,res)=>{
+    res.send("HI")
+})
 app.get("/Category", async (req, res) => {
   try {
     const recipe = await CATEGORY.find();
@@ -71,4 +74,4 @@ app.get("/Recipe", async (req, res) => {
 // });
 // c.save();
 // r.save()
-app.listen(3000);
+app.listen(process.env.PORT || 3000)
